@@ -5,7 +5,6 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
     List<Node<K, V>> list = new LinkedList<>();
 
     @Override
-    @SuppressWarnings("unchecked")
     public V put(K key, V value) {
         V returningValue = null;
 
@@ -13,7 +12,7 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
             list.add(new Node<>(key, value));
             return null;
         }
-        for (Node node : list) {
+        for (Node<K, V> node : list) {
             if (node.key.equals(key)) {
                 returningValue = (V) node.getValue();
                 node.setValue(value);
@@ -24,13 +23,12 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public V get(K key) {
         if (!containsKey(key)) {
             System.out.println("Map doesn't include such key!");
             return null;
         }
-        for (Node node : list) {
+        for (Node<K, V> node : list) {
             if (node.key.equals(key)) {
                 return (V) node.getValue();
             }
@@ -39,7 +37,6 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public V remove(K key) {
         V returningValue = null;
 
@@ -47,7 +44,7 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
             System.out.println("Map doesn't include such key!");
             return null;
         }
-        for (Node node : list) {
+        for (Node<K, V> node : list) {
             if (node.key.equals(key)) {
                 returningValue = (V) node.getValue();
             }
@@ -57,7 +54,7 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
 
     @Override
     public boolean containsKey(K key) {
-        for (Node node : list) {
+        for (Node<K, V> node : list) {
             if (node.key.equals(key)) {
                 return true;
             }
@@ -66,20 +63,18 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public Collection<V> values() {
         ArrayList<V> array = new ArrayList<>();
-        for (Node node : list) {
+        for (Node<K, V> node : list) {
             array.add((V) node.getValue());
         }
         return array;
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public Set<K> keySet() {
         Set<K> set = new HashSet<>();
-        for (Node node : list) {
+        for (Node<K, V> node : list) {
             set.add((K) node.getKey());
         }
         return set;
@@ -99,28 +94,28 @@ public class MapInf304<K, V> implements IMapInf304<K, V>{
         System.out.println(map.get("Lexa"));
     }
 
-    private class Node<K, V> {
-        private K key;
-        private V value;
+    private class Node<Key, Val> {
+        private Key key;
+        private Val value;
 
-        Node(K key, V value) {
+        Node(Key key, Val value) {
             this.key = key;
             this.value = value;
         }
 
-        public K getKey() {
+        public Key getKey() {
             return key;
         }
 
-        public void setKey(K key) {
+        public void setKey(Key key) {
             this.key = key;
         }
 
-        public V getValue() {
+        public Val getValue() {
             return value;
         }
 
-        public void setValue(V value) {
+        public void setValue(Val value) {
             this.value = value;
         }
     }
