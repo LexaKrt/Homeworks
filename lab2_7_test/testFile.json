@@ -1,0 +1,31 @@
+{
+  "name": "Aurora Borealis",
+  "description": "A mesmerizing display of dancing lights in the night sky.",
+  "location": {
+    "latitude": 66.5,
+    "longitude": -150.0
+  },
+  "colors": [
+    "green",
+    "pink",
+    "purple",
+    "blue"
+  ],
+  "intensity": 8,
+  "visible": true,
+  "best_viewing_time": {
+    "start_hour": 22,
+    "end_hour": 2
+  },
+  "mythology": [
+    {
+      "culture": "Norse",
+      "belief": "Bifrost bridge connecting Earth and Asgard"
+    },
+    {
+      "culture": "Finnish",
+      "belief": "Fire foxes running across the snow"
+    }
+  ]
+}
+

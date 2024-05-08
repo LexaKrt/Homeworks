@@ -1,0 +1,14 @@
+{
+  "name": "John",
+  "age": 30,
+  "city": "New York",
+  "pets": [
+    {?
+      "type": "dog",
+      "name": "Buddy"
+    },
+    {!
+      "type": "cat",
+      "name": "Whiskers"
+    }
+  ]}
